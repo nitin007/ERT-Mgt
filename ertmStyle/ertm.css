@@ -1,0 +1,63 @@
+.wrapper,body
+{
+	margin:0px;
+	pading:0px;
+	overflow:hidden;
+}
+
+.contentWrapper
+{
+	margin:0px auto;
+	padding 0px;
+	width:1024px;
+}
+
+.header
+{
+	margin-top:3px;
+	border:3px solid #000000;
+}
+
+.ertContainer
+{
+	margin-top:100px;
+}
+
+.rolesContainer,.empContainer,.toDosContainer
+{
+	float:left;
+	border:1px solid #000000;
+}
+
+.rolesHeader,.ror,.android,.ios,.js,.toDosHeader,.empHeader,#emp1,#emp2,#emp3,#emp4,#emp5,#emp6
+{
+	border-bottom:1px solid #000000;
+	text-decoration:underline;
+}
+
+.rolesHeader,.toDosHeader,.empHeader,#emp1,#emp2,#emp3,#emp4,#emp5,#emp6
+{
+	text-decoration:none;
+}
+
+
+.empContainer
+{
+	margin-left:30px;
+}
+
+.toDosContainer
+{
+	margin-left:100px;
+}
+
+img
+{
+	float:left;
+}
+textarea
+{
+	width:100px;
+	height:20px;
+}
+

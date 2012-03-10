@@ -2,7 +2,6 @@
 {
 	margin:0px;
 	pading:0px;
-	overflow:hidden;
 }
 
 .contentWrapper
@@ -29,17 +28,10 @@
 	border:1px solid #000000;
 }
 
-.rolesHeader,.ror,.android,.ios,.js,.toDosHeader,.empHeader,#emp1,#emp2,#emp3,#emp4,#emp5,#emp6
+.rolesHeader,.ror,.android,.ios,.js,.toDosHeader,.empHeader, .empContainer .emp
 {
 	border-bottom:1px solid #000000;
-	text-decoration:underline;
 }
-
-.rolesHeader,.toDosHeader,.empHeader,#emp1,#emp2,#emp3,#emp4,#emp5,#emp6
-{
-	text-decoration:none;
-}
-
 
 .empContainer
 {
@@ -51,13 +43,41 @@
 	margin-left:100px;
 }
 
+.toDosContainer img
+{
+	float:right;
+}
+
 img
 {
 	float:left;
+	height:15;
+	width:15;
 }
-textarea
+
+.toDosContainer
 {
-	width:100px;
-	height:20px;
+	width:600px;
+}
+
+
+
+.toDosContainer .emp div.task
+{
+	width:500px;
+	height:50px;
+	border-top:1px solid #000000;
+	border-right:1px solid #000000;
+	border-bottom:1px solid #000000;
+}
+
+.ror center div,.js center div,.ios center div,.android center div
+{
+	border-bottom:1px solid #000000;
+}
+
+.activeState
+{
+	background-color:#E0D7CF;
 }
 

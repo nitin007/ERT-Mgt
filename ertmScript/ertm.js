@@ -5,27 +5,26 @@ $(function(){
 		cursor: 'move'
 	});
 	
-	$('.role_head').children('div:not(.role_header)').droppable({
+	$('.drop').droppable({
 		 accept: '.emp',
 		 addClasses: false,
 		 hoverClass: 'activeState',
          drop: function(event,ui){	
-		     if(!$(this).children('div').length)
+		     if(!($(this).children('div').length))
 		     {
 		     		$(this).append($(ui.draggable).clone());
-		    		$(this).children('.ui-draggable').prepend('<img src=/home/nitin-gupta/Desktop/ERT-Mgt/images/remove.png />');
-		    		$(this).find('img').hide();
-		    		$(this).children('.emp').removeClass('ui-draggable');		     		
+		    		$(this).find('div').prepend('<img src = images/remove.png class = remove />');
+		    		$(this).find('img').hide();		     		
 		     		
 		     		
 		     		var that = this;
 		     		
 		     		
-		     		$('.todos_head').children().each(function(){
+		     		$('div.todos_head').children().each(function(){
 		  		   	if($(that).attr('role')===$(this).attr('role'))
 		  		   	{
-		  		   		$(this).prepend('<img src=/home/nitin-gupta/Desktop/ERT-Mgt/images/collapse.png class=collapse />');
-		  		   		$(this).prepend('<img src=/home/nitin-gupta/Desktop/ERT-Mgt/images/expand.gif class=expand />');
+		  		   		$(this).prepend('<img src = images/collapse.png class=collapse />');
+		  		   		$(this).prepend('<img src = images/expand.gif class=expand />');
 		  		   		$(this).append($(ui.draggable).clone());
 		  		   		$(this).find('.ui-draggable').append('<div class=task></div>');
 		  		   		$(this).children('img.expand').hide();
@@ -44,12 +43,11 @@ $(function(){
      					if($(this).is(':last-child'))
      					{	
      						$(that).append($(ui.draggable).clone());
-     						$(that).find('.ui-draggable').prepend('<img src=/home/nitin-gupta/Desktop/ERT-Mgt/images/remove.png />');
-     						$(that).find('.emp img').hide();
-     						$(that).find('.emp').removeClass('ui-draggable');
+     						$(this).next().prepend('<img src = images/remove.png class = remove />');		
+     						$(that).find('img').hide();
      						
      						
-			    	 		$('.todos_head').children().each(function(){
+			    	 		$('div.todos_head').children().each(function(){
 			  			   	if($(that).attr('role')===$(this).attr('role'))
 			  			   	{
 		  			   			$(this).append($(ui.draggable).clone());
@@ -78,30 +76,32 @@ $(function(){
 			});
 			
 			
-			$(this).find('.emp img').click(function(){
+			$(this).find('img.remove').click(function(){
+				$(this).parent().remove();
+				
 				var idVar = $($(this).parent()).attr('id');
-				var clsVar = $($(this).parent().parent()).attr('class');
-
-		   		$(this).parent().remove();
-		   		$('.todos_head #'+idVar).remove();
-		   		if(!($('.todos_head .'+clsVar).children('.emp').length))
-		   		{
-					$('.todos_head .'+clsVar).children('img').hide();
-				}
-       		});    	 
+						   	
+		   	$('.todos_head #'+idVar).remove();
+		  		$('.todos_head').children().each(function(){
+		  			if(!($(this).children('.emp').length))
+		  			{
+		  				$(this).children('img').hide();
+		  			}
+		  		});
+       	});    	 
        
        		
        		$('img.expand').click(function(){
-       			$(this).nextAll('.emp').show(200);
+       			$(this).nextAll('div').show(200);
        			$(this).hide();
-       			$(this).next('.collapse').show();
+       			$(this).next('img').show();
        		});
        			
        			
        		$('img.collapse').click(function(){
-       			$(this).nextAll('.emp').hide(200);
+       			$(this).nextAll('div').hide(200);
        			$(this).hide();
-       			$(this).prev('.expand').show();
+       			$(this).prev('img').show();
        		});
          },
 	});
